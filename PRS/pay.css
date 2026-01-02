@@ -1,0 +1,87 @@
+table {
+    border-collapse: collapse;
+    width: 25%;
+    margin: 20px auto;
+}
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th {
+    background-color: black;
+    color:white;
+}
+td{
+    background-color: white;
+    color:black;
+}
+.center {
+    text-align: center;
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin:0 100px;
+}
+
+/* Hover effect */
+.button:hover {
+    background-color: #0056b3;
+
+}
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+h2 {
+    margin-top: 0;
+    font-weight: bold;
+    color: #333;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border:1px solid black;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: black;
+    color:white;
+}
+td
+{
+    background-color: white;
+    color:black;
+}
+.continue-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px;
+    margin-top: 20px; /* Adjust margin as needed */
+    cursor: pointer;
+    border-bottom: 2px solid #0056b3; /* Add bottom border */
+}
+.continue-btn i {
+    margin-right: 5px;
+}
+.continue-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

@@ -1,0 +1,130 @@
+<html>
+<head>
+  <title>Contact Us</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <style>
+   html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Times New Roman', Times, serif; /* Change font family */
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  width: 100%; /* Set width to 100% for full-width layout */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  max-width: 800px; /* Limit maximum width for better readability */
+}
+.contact-info {
+  padding: 20px;
+  text-align: center;
+  background-color:mediumseagreen; /* Background color for reach us info */
+  color: #fff; /* Text color for reach us info */
+}
+.contact-info h2 {
+  margin-top: 23px;
+}
+.contact-info p {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.social-links {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.social-links a {
+  margin-right: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px; /* Increased font size for social links */
+}
+.social-links a:hover {
+ color:gold;
+}
+
+.social-links a i {
+  font-size: 24px; /* Increased font size for icons */
+}
+.form {
+  flex: 1;
+  padding: 20px;
+  text-align: left; /* Align form elements to the left */
+}
+.form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.form input[type="text"],
+.form input[type="email"],
+.form textarea,
+.form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form textarea {
+  height: 150px;
+}
+.form input[type="submit"] {
+  background-color: rgb(180, 17, 180);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.form input[type="submit"]:hover {
+  background-color: rosybrown;
+}
+.vertical-line {
+  border-left: 1px solid #ccc;
+}  
+  </style>
+</head>
+<body>
+</div>
+  <div class="container">
+    <div class="contact-info">
+      <h2>Reach Us</h2>
+      <p>Company: PRS Material Suppliers</p>
+      <p>Email: prs@gmail.com</p>
+      <p>Address: 123 Main Street, Cuddalore, Tamilnadu</p>
+      <p>Phone: +91760-493-7145</p>
+      <h2>Connect us</h2>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="vertical-line"></div>
+    <div class="form">
+      <h2>Contact Us</h2>
+      <form action="#" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</body>
+</html> 
+
+

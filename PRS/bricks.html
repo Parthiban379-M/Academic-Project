@@ -1,0 +1,132 @@
+<html>
+<head>
+  <title>Brick Product Specifications</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: red;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  .container {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .largeimage {
+    padding: 20px;
+    
+  }
+  .largeimage img {
+    max-width: 500px; 
+    max-height: 500px; 
+
+  }
+  .brickimage {
+    padding: 20px;
+  }
+  .brickimage img {
+    width: 100px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .brick-specs {
+    padding: 20px;
+    border-left: 2px solid firebrick;
+    text-align: left;
+  }
+  .brick-specs h2 {
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: red;
+  }
+  .brick-specs p {
+    margin-bottom: 10px;
+  }
+  .brick-specs li {
+    list-style-type: none;
+  }
+  .button-container {
+    margin-top: 20px;
+    text-align: left;
+   
+  }
+  .button {
+    padding: 10px 20px;
+    background:linear-gradient(to left,red,goldenrod);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:0 150px;
+    border-radius: 20px;
+  }
+  .button:hover {
+    background-color: #0056b3;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Brick Product</h1>
+  </header>
+  <div class="container">
+    <div class="largeimage" id="largeImageContainer">
+      <img src="bricks1.webp" alt="sorry" id="largeImage">
+    </div>
+    <div class="brickimage">
+      <img src="bricks1.webp" alt="Sorry" onclick="displayImage('bricks1.webp')">
+      <img src="brick-2.jpg" alt="Sorry" onclick="displayImage('brick-2.jpg')">
+    </div>
+    <div class="brickspaces">
+      <h2>Product Features</h2>
+      <p>Bricks are versatile building materials used for constructing walls, pavements, and other structures.</p>
+      
+      <h2>Size</h2>
+      <p>210mm x 100mm x 70mm</p>
+
+      <h2>Material</h2>
+      <p>Material: Clay</p>
+
+      <h2>Color</h2>
+      <p>Color: Red</p>
+
+      <h2>Weight</h2>
+      <p>Weight: 4.5 lbs</p>
+
+      <h2>Usage</h2>
+      <p>Commonly used for building walls, pavements, and other structures.</p>
+
+      <h2>Suppliers</h2>
+      <p>Below are some reliable suppliers of bricks:</p>
+      <ul>
+        <li>ABC Brick Company</li>
+        <li>XYZ Brick Suppliers</li>
+      </ul>
+    </div>
+    <div class="button-container">
+     <a href="permit.html"> <button class="button">Add to Cart</button></a>
+     <a href="product.html"><button class="button">Products</button></a>
+    </div>
+  </div>
+
+  <script>
+    function displayImage(imageUrl) {
+      document.getElementById('largeImage').src = imageUrl;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+

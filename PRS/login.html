@@ -1,0 +1,274 @@
+<html>
+<head>
+    <title>Sample Website</title>
+   <style>
+         body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100%;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        position: relative;
+    }
+
+    .background-image {
+        background-image: url('loginuser.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        flex: 1; /* This ensures the image takes up remaining space */
+    }
+
+    /* Styles for the login form */
+    .login-form {
+        width: 300px;
+        padding: 20px;
+        margin: 50px auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.8); /* Adjust transparency as needed */
+        position: absolute;
+        top: 55%;
+        right: 50px; /* Adjust the distance from the right edge */
+        transform: translateY(-50%);
+        border-radius: 20px;
+    }
+
+    .login-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .login-form input[type="text"],
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form input[type="password"]
+    {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid red;
+        border-radius: 20px 50px;
+    }
+    .login-form input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color:blue;
+        color: white;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    .login-form input[type="submit"]:hover {
+        background-color:aqua;
+    }
+
+    .login-form p {
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .login-form p a {
+        color:#F4A460;
+        text-decoration: none;
+    }
+
+    .login-form p a:hover {
+        text-decoration: underline;
+    }
+     footer {
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust background color and transparency as needed */
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .footer-content > div {
+        flex: 1; /* Each section takes equal space */
+    }
+
+    .footer-content h3 {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        margin-bottom: 15px; /* Align <h3> elements center */
+    }
+
+    .footer-content p {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .list{
+    padding: 0;
+    }
+   .list li{
+    width: auto;
+    text-align: center;
+    list-style-type:none;
+    padding: 7px;
+    position:relative;        
+
+    }
+    .list li::before {
+    content: ''; /* Empty content */
+    position: absolute;
+    bottom: 0; /* Position at the bottom of the list item */
+    left: 50%; /* Position at the center horizontally */
+    transform: translateX(-50%); /* Move back half of its width to center it */
+    width: 0; /* Initially no width */
+    height: 2px;
+    background: #f18930;
+    transition-duration: 0.5s;
+    }
+    .list li a:hover{
+    color: #F4A460;
+    }
+
+    .list li:hover::before {
+    width: 30%; /* Increase width on hover */
+    }
+    .list li:hover::after {
+    width: 30%; /* Increase width on hover */
+    }
+    .list li a{
+    text-decoration: none;
+    color:blue;
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    } 
+    .social-icons
+    {
+    list-style-type: none;
+    padding: 0;
+    margin: 5px 0;
+    text-align: center;    
+    }   
+    .social-icons li
+    {
+    margin: 0 10px;
+    }
+     
+    .social-icons a {
+     text-decoration: none;
+     color:white;
+     display:flex;
+     flex-direction: column;
+     margin-bottom: 20px;
+    }
+     
+     .social-icons a:hover {
+      color: #f18930;
+     }
+
+    .bottom-bar {
+        background: #F4A460;
+        text-align: center;
+        padding: 15px;
+        width: 100%; /* Make the bottom bar full width */
+    }
+
+    .bottom-bar p {
+        color: #343434;
+        font-size: 16px;
+        margin: 0;
+        padding: 7px;
+    }
+
+    .line {
+        width: 100%;
+        border-top: 1px solid #ccc;
+    }   
+    </style>
+    <script src="icon.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="background-image"></div>
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="logi.php" method="post">
+                <input type="text" name="username" placeholder="Username"/>
+                <input id="password" type="password" name="password" placeholder="Password" required />
+                <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()">Show Password</input>
+                <input type="submit" value="Login" />
+            </form>
+            <p>Don't have an account? <a href="newuser.html">Sign up</a></p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p>Email: prs@gmail.com</p>
+                <p>Phone: +91760-493-7145</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <ul class="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Product.html">Products</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <ul class="social-icons">
+                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                    <li><a href=""><i class="fab fa-whatsapp"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="line"></div>
+    <div class="bottom-bar">
+        <p>&copy; 2024 your company . All rights reserved</p>
+    </div>
+    <script src="https://kit.fontawesome.com/1165876da6.js" crossorigin="anonymous">
+    </script>
+     <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+        </script>
+        <script>
+            window.onload = function() {
+                // Get the error parameter from the URL
+                var urlParams = new URLSearchParams(window.location.search);
+                var error = urlParams.get('error');
+
+                // Display error message if error parameter is present
+                if (error === 'invalid') {
+                    alert("Invalid username or password. Please try again.");
+                    return false;
+                }
+                return true;
+            };
+        </script>
+</body>
+</html>
+
+

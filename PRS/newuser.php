@@ -1,0 +1,24 @@
+<?php
+$con=mysqli_connect("localhost","root","","sample");
+if($con)
+{
+echo"connect";
+}
+else
+{
+echo"error";
+}
+$n=$_POST['name'];
+$ph=$_POST['phone'];
+$p=$_POST['password'];
+$cp=$_POST['confirm_password'];
+$sql="insert into user(name,phone,pass,cpass)values('$n','$ph','$p','$cp')";
+$result=mysqli_query($con,$sql);
+if($result)
+{
+    header("location:login.html");
+}
+else{
+    echo"error";
+}
+?>

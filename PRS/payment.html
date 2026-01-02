@@ -1,0 +1,299 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Payment</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color:transparent;
+    margin: 0;
+    padding: 0;
+  }
+  #payment-form {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  }
+  h2 {
+    margin-top: 0;
+    font-weight: bold;
+    color: #333;
+  }
+  fieldset {
+    border: none;
+    margin: 20px 0;
+  }
+  label {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+  .icon {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #555;
+    transition: color 0.3s;
+  }
+  .payment-option:hover .icon {
+    border: 1px solid #007bff; /* Add border color on hover */
+  }
+  .payment-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .payment-option label {
+    cursor: pointer;
+    flex: 1;
+  }
+  .card-details,
+  .upi-details {
+    display: none;
+  }
+  input[type="radio"]:checked + label + .card-details,
+  input[type="radio"]:checked + label + .upi-details {
+    display: block;
+  }
+  input[type="text"], input[type="password"] {
+    width: calc(100% - 40px);
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  .payment-methods {
+    display: flex;
+    justify-content: space-between;
+  }
+  .payment-methods label {
+    text-transform: capitalize;
+  }
+  .rupay-icon {
+    color: #ff6347;
+  }
+  .visa-icon {
+    color: #4682b4;
+  }
+  .visa-platinum-icon {
+    color: #ff8c00;
+  }
+  .visa-diamond-icon {
+    color: #9932cc;
+  }
+  .gpay-icon {
+    color: #4CAF50;
+  }
+  #accept_cash_label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    color: red; /* Set foreground color to red */
+  }
+  #accept_cash_label input[type="checkbox"] {
+    display: inline-block;
+    margin-top: 0;
+    vertical-align: middle;
+    background-color: red; /* Set background color to red */
+  }
+</style>
+</head>
+<body>
+<div id="payment-form">
+  <h2>New Payment</h2>
+  <form action="storebill.php" method="post">
+    <fieldset>
+      <legend>Select Payment Method</legend>
+      <div class="payment-option">
+        <input type="radio" name="payment_method" id="cash" value="cash" class="icon-radio">
+        <label for="cash"><i class="fas fa-money-bill-wave icon" style="color:gold;"></i>Cash on Delivery</label>
+      </div>
+      <div class="payment-option">
+        <input type="radio" name="payment_method" id="card" value="card" class="icon-radio">
+        <label for="card"><i class="far fa-credit-card icon" style="color:rgb(71, 71, 163);"></i>Credit/Debit Card</label>
+      </div>
+      <div class="payment-option">
+        <input type="radio" name="payment_method" id="net_banking" value="net_banking" class="icon-radio">
+        <label for="net_banking"><i class="fab fa-google-pay icon gpay-icon" style="color:blueviolet;"></i>Netbanking (GPay)</label>
+      </div>
+    </fieldset>
+    <fieldset class="card-details">
+      <legend>Select Card Type</legend>
+      <div class="payment-methods">
+        <div class="payment-option">
+          <input type="radio" name="card_type" id="rupay" value="rupay" class="icon-radio">
+          <label for="rupay"><i class="fab fa-cc-discover icon rupay-icon"></i>RuPay</label>
+        </div>
+        <div class="payment-option">
+          <input type="radio" name="card_type" id="visa" value="visa" class="icon-radio">
+          <label for="visa"><i class="fab fa-cc-visa icon visa-icon"></i>Visa</label>
+        </div>
+        <div class="payment-option">
+          <input type="radio" name="card_type" id="visa_platinum" value="visa_platinum" class="icon-radio">
+          <label for="visa_platinum"><i class="fab fa-cc-visa icon visa-platinum-icon"></i>Visa Platinum</label>
+        </div>
+        <div class="payment-option">
+          <input type="radio" name="card_type" id="visa_diamond" value="visa_diamond" class="icon-radio">
+          <label for="visa_diamond"><i class="fab fa-cc-visa icon visa-diamond-icon"></i>Visa Diamond</label>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="card-details">
+      <label for="card_name"><i class="far fa-user icon" style="color: blue;"></i>Name</label>
+      <input type="text" name="card_name" id="card_name" placeholder="Name on Card">
+      <label for="card_cvv"><i class="fas fa-lock icon" style="color: green;"></i>CVV</label>
+      <input type="text" name="card_cvv" id="card_cvv" placeholder="CVV">
+      <label for="card_expiry"><i class="far fa-calendar-alt icon" style="color: red;"></i>Expiry Date</label>
+      <input type="text" name="card_expiry" id="card_expiry" placeholder="Expiry Date (MM/YYYY)">
+      <label for="card_number"><i class="fas fa-credit-card icon" style="color: purple;"></i>Card Number</label>
+      <input type="text" name="card_number" id="card_number" placeholder="Card Number">
+    </fieldset>
+    <fieldset class="upi-details">
+      <legend>Enter GPay Details</legend>
+      <label for="upi_name"><i class="far fa-user icon" style="color: blue;"></i>Name</label>
+      <input type="text" name="upi_name" id="upi_name" placeholder="Your Name">
+      <label for="upi_id"><i class="fas fa-id-card icon" style="color: #FFC107;"></i>UPI ID</label>
+      <input type="text" name="upi_id" id="upi_id" placeholder="Your UPI ID">
+    </fieldset>
+    <!-- Adjusted checkbox alignment -->
+    <label for="accept_cash" id="accept_cash_label"><input type="checkbox" id="accept_cash" name="accept_cash">I accept cash on delivery</label>
+    <button type="submit" class="submit-btn">Proceed to Payment</button>
+  </form>
+</div>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+  const paymentOptions = document.querySelectorAll('.icon-radio');
+  const cardDetails = document.querySelectorAll('.card-details');
+  const upiDetails = document.querySelector('.upi-details');
+  const cardTypeRadios = document.querySelectorAll('input[name="card_type"]');
+  const cardNameInput = document.getElementById('card_name');
+  const cardCVVInput = document.getElementById('card_cvv');
+  const cardExpiryInput = document.getElementById('card_expiry');
+  const cardNumberInput = document.getElementById('card_number');
+  const upiNameInput = document.getElementById('upi_name');
+  const upiIdInput = document.getElementById('upi_id');
+  const cashCheckbox = document.getElementById('accept_cash');
+  const submitBtn = document.querySelector('.submit-btn');
+
+  // Function to validate the form before submission
+  function validateForm() {
+    const selectedPaymentOption = document.querySelector('input[name="payment_method"]:checked');
+
+    if (selectedPaymentOption && selectedPaymentOption.value === 'cash') {
+      // If cash on delivery is selected, check if the cash checkbox is checked
+      if (!cashCheckbox.checked) {
+        alert('Please accept cash on delivery by checking the checkbox.');
+        return false;
+      }
+    } else if (selectedPaymentOption && selectedPaymentOption.value === 'card') {
+      // If card payment is selected, check if all card details are filled
+      if (!cardNameInput.value || !cardCVVInput.value || !cardExpiryInput.value || !cardNumberInput.value) {
+        alert('Please fill in all card details.');
+        return false;
+      }
+    } else if (selectedPaymentOption && selectedPaymentOption.value === 'net_banking') {
+      // If netbanking (GPay) is selected, check if all UPI details are filled
+      if (!upiNameInput.value || !upiIdInput.value) {
+        alert('Please fill in all UPI details.');
+        return false;
+      }
+    } else {
+      // If no payment method is selected
+      alert('Please select a payment method.');
+      return false;
+    }
+
+    // If all validations pass, allow form submission
+    return true;
+  }
+
+  paymentOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      if (option.id === 'cash') {
+        cardDetails.forEach(card => card.style.display = 'none');
+        upiDetails.style.display = 'none';
+        cardDetails.forEach(card => card.querySelectorAll('input[type="text"]').forEach(input => input.value = '')); // Clear card details
+        upiDetails.querySelectorAll('input[type="text"]').forEach(input => input.value = ''); // Clear UPI details
+        cashCheckbox.checked = false; // Uncheck cash checkbox
+        // Disable card inputs
+        cardNameInput.disabled = true;
+        cardCVVInput.disabled = true;
+        cardExpiryInput.disabled = true;
+        cardNumberInput.disabled = true;
+        // Disable card type radios
+        cardTypeRadios.forEach(radio => radio.disabled = true);
+        // Disable UPI inputs
+        upiNameInput.disabled = true;
+        upiIdInput.disabled = true;
+      } else if (option.id === 'net_banking') {
+        cardDetails.forEach(card => card.style.display = 'none');
+        upiDetails.style.display = 'block';
+        cardDetails.forEach(card => card.querySelectorAll('input[type="text"]').forEach(input => input.value = '')); // Clear card details
+        upiDetails.querySelectorAll('input[type="text"]').forEach(input => input.value = ''); // Clear UPI details
+        cashCheckbox.checked = false; // Uncheck cash checkbox
+        // Enable UPI inputs
+        upiNameInput.disabled = false;
+        upiIdInput.disabled = false;
+        // Disable card inputs
+        cardNameInput.disabled = true;
+        cardCVVInput.disabled = true;
+        cardExpiryInput.disabled = true;
+        cardNumberInput.disabled = true;
+        // Disable card type radios
+        cardTypeRadios.forEach(radio => radio.disabled = true);
+      } else {
+        cardDetails.forEach(card => card.style.display = 'block');
+        upiDetails.style.display = 'none';
+        upiDetails.querySelectorAll('input[type="text"]').forEach(input => input.value = ''); // Clear UPI details
+        // Enable card inputs
+        cardNameInput.disabled = false;
+        cardCVVInput.disabled = false;
+        cardExpiryInput.disabled = false;
+        cardNumberInput.disabled = false;
+        // Enable card type radios
+        cardTypeRadios.forEach(radio => radio.disabled = false);
+        // Disable UPI inputs
+        upiNameInput.disabled = true;
+        upiIdInput.disabled = true;
+      }
+    });
+  });
+
+  // Add event listener for form submission
+  submitBtn.addEventListener('click', function (event) {
+    if (validateForm()) {
+      const selectedPaymentOption = document.querySelector('input[name="payment_method"]:checked');
+      if (selectedPaymentOption && (selectedPaymentOption.value === 'card' || selectedPaymentOption.value === 'net_banking')) {
+        alert('Payment successful!');
+      }
+    } else {
+      event.preventDefault(); // Prevent form submission if validation fails
+    }
+  });
+});
+</script>
+ </body>
+</html>

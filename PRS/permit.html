@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Login Redirect</title>
+</head>
+<body>
+<script>
+     function checkLoggedIn() {
+    var loggedIn = sessionStorage.getItem('logged_in');
+    if (loggedIn === 'true') {
+        var loginCount = parseInt(sessionStorage.getItem('login_count'));
+        if (loginCount === 1) {
+            window.location.href = "home.html";
+        } else {
+            window.location.href = "pp.html";
+            }
+    } else {
+        window.location.href = "login.html";
+    }
+}
+
+window.onload = function() {
+    checkLoggedIn();
+};
+</script>
+</body>
+</html>

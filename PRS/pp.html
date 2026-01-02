@@ -1,0 +1,253 @@
+<html>
+<head>
+<title>Add to Cart Table</title>
+<style>
+ table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    background-color: #3498db; /* Blue background color */
+    color: #ffffff; /* White text color */
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    padding: 10px; /* Add padding for better readability */
+}
+td {
+    font-size: 16px;
+    border: 1px solid  #aaaaaa;
+    text-align: center;
+    padding: 8px; /* Add padding for better readability */
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    margin-top: 5px; /* Reduce margin top for better alignment */
+    margin-bottom: 5px; /* Reduce margin bottom for better alignment */
+}
+button {
+    background-color: #27ae60; /* Green button background color */
+    color: #ffffff; /* White text color */
+    cursor: pointer;
+    padding: 10px 20px; /* Add padding for better button size */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    position: absolute;
+    bottom: -270px;
+    right: 10px;
+     /* Smooth transition effect */
+}
+button:hover {
+    background-color: #219653; /* Darker green on hover */
+}
+input[type="number"] {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #dddddd; /* Light gray border */
+    border-radius: 5px;
+}
+span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #f39c12; /* Orange background color */
+    color: #ffffff; /* White text color */
+
+}   
+</style>
+<script src="pp.js"></script> 
+</head>
+<body>
+<form id="cartForm" action="storing.php" method="post" onsubmit="return validateForm()">
+<table>
+    <tr>
+        <th>S.NO</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td><img src="bricks1.webp" alt="PRS Bricks"></td>
+        <td><h3>BRS Bricks</h3></td>
+        <td>Load</td>
+        <td>
+            <span onclick="decrementQuantity('quantityA', 32000)">-</span>
+            <input type="number" id="quantityA" name="quantityA" value="0" min="0" max="100" onchange="calculateTotal('quantityA', 'totalB', 32000)">
+            <span onclick="incrementQuantity('quantityA', 32000)">+</span>
+        </td>
+        <td>Rs.32000</td>
+        <td id="totalA">0</td>
+        <input type="hidden" name="nameA" value="BRS Bricks">
+        <input type="hidden" name="priceA" value="32000">
+        <input type="hidden" id="hiddenTotalA" name="hiddenTotalA" value="0">
+    </tr>
+    <tr>
+        <td>2</td>
+        <td><img src="brick-2.jpg" alt="Vac Bricks"></td>
+        <td><h3>Vac Bricks</h3></td>
+        <td>Load</td>
+        <td>
+            <span onclick="decrementQuantity('quantityB', 40000)">-</span>
+            <input type="number" id="quantityB" name="quantityB" value="0" min="0" max="100" onchange="calculateTotal('quantityB', 'totalB', 40000)">
+            <span onclick="incrementQuantity('quantityB', 40000)">+</span>
+        </td>
+        <td>Rs.40000</td>
+        <td id="totalB">0</td> 
+        <input type="hidden" name="nameB" value="VAC Bricks">
+        <input type="hidden" name="priceB" value="40000">
+        <input type="hidden" id="hiddenTotalB" name="hiddenTotalB" value="0">
+    </tr>
+    <tr>
+        <td>3</td>
+        <td><img src="jswcement.png" alt="JSW cement"></td>
+        <td><h3>JSW Cement</h3></td>
+        <td>Bag</td>
+        <td>
+            <span onclick="decrementQuantity('quantityC', 380)">-</span>
+            <input type="number" id="quantityC" name="quantityC" value="0" min="0" max="100" onchange="calculateTotal('quantityC', 'totalC', 380)">
+            <span onclick="incrementQuantity('quantityC', 380)">+</span>
+        </td>
+        <td>Rs.380</td>
+        <td id="totalC">0</td> 
+        <input type="hidden" name="nameC" value="JSW cement">
+        <input type="hidden" name="priceC" value="380">
+        <input type="hidden" id="hiddenTotalC" name="hiddenTotalC" value="0">
+    </tr>
+    <tr>
+        <td>4</td>
+        <td><img src="ultratech.jpg" alt="Ultratech cement"></td>
+        <td><h3>Ultratech cement</h3></td>
+        <td>Bag</td>
+        <td>
+            <span onclick="decrementQuantity('quantityD', 400)">-</span>
+            <input type="number" id="quantityD" name="quantityD" value="0" min="0" max="100" onchange="calculateTotal('quantityD', 'totalD', 400)">
+            <span onclick="incrementQuantity('quantityD', 400)">+</span>
+        </td>
+        <td>Rs.400</td>
+        <td id="totalD">0</td>
+        <input type="hidden" name="nameD" value="Ultratech cement">
+        <input type="hidden" name="priceD" value="400">
+        <input type="hidden" id="hiddenTotalD" name="hiddenTotalD" value="0"> 
+    </tr>
+    <tr>
+        <td>5</td>
+        <td><img src="sand.jpg" alt="M-sand"></td>
+        <td><h3>M-sand</h3></td>
+        <td>Load</td>
+        <td>
+            <span onclick="decrementQuantity('quantityE', 16000)">-</span>
+            <input type="number" id="quantityE" name="quantityE" value="0" min="0" max="100" onchange="calculateTotal('quantityE', 'totalE', 16000)">
+            <span onclick="incrementQuantity('quantityE', 16000)">+</span>
+        </td>
+        <td>Rs.16000</td>
+        <td id="totalE">0</td> 
+        <input type="hidden" name="nameE" value="M-sand">
+        <input type="hidden" name="priceE" value="16000">
+        <input type="hidden" id="hiddenTotalE" name="hiddenTotalE" value="0"> 
+    </tr>
+    <tr>
+        <td>6</td>
+        <td><img src="p-sand.webp" alt="P-sand"></td>
+        <td><h3>P-sand</h3></td>
+        <td>Load</td>
+        <td>
+            <span onclick="decrementQuantity('quantityF', 18000)">-</span>
+            <input type="number" id="quantityF" name="quantityF" value="0" min="0" max="100" onchange="calculateTotal('quantityF', 'totalF', 18000)">
+            <span onclick="incrementQuantity('quantityF', 18000)">+</span>
+        </td>
+        <td>Rs.18000</td>
+        <td id="totalF">0</td>
+        <input type="hidden" name="nameF" value="P-sand">
+        <input type="hidden" name="priceF" value="18000">
+        <input type="hidden" id="hiddenTotalF" name="hiddenTotalF" value="0">  
+        </tr>
+       
+        <tr>
+            <td>7</td>
+            <td><img src="6mm.webp" alt="6mm Jeely"></td>
+            <td><h3>6mm jelly</h3></td>
+            <td>Load</td>
+            <td>
+                <span onclick="decrementQuantity('quantityG', 13000)">-</span>
+                <input type="number" id="quantityG" name="quantityG" value="0" min="0" max="100" onchange="calculateTotal('quantityG', 'totalG', 13000)">
+                <span onclick="incrementQuantity('quantityG', 13000)">+</span>
+            </td>
+            <td>Rs.13000</td>
+            <td id="totalG">0</td>
+            <input type="hidden" name="nameG" value="6mm Jeely">
+            <input type="hidden" name="priceG" value="13000">
+            <input type="hidden" id="hiddenTotalG" name="hiddenTotalG" value="0">   
+        </tr>
+
+        <tr>
+            <td>8</td>
+            <td><img src="12mmstone.jpg" alt="12mm Jeely"></td>
+            <td><h3>12mm Jelly</h3></td>
+            <td>Load</td>
+            <td>
+                <span onclick="decrementQuantity('quantityH', 5500)">-</span>
+                <input type="number" id="quantityH" name="quantityH" value="0" min="0" max="100" onchange="calculateTotal('quantityH', 'totalH', 5500)">
+                <span onclick="incrementQuantity('quantityH', 5500)">+</span>
+            </td>
+            <td>Rs.5500</td>
+            <td id="totalH">0</td>
+            <input type="hidden" name="nameH" value="12mm Jeely">
+            <input type="hidden" name="priceH" value="5500">
+            <input type="hidden" id="hiddenTotalH" name="hiddenTotalH" value="0">   
+        </tr>
+        <tr>
+            <td>9</td>
+            <td><img src="20mmjelly.avif" alt="20mm Jeely"></td>
+            <td><h3>20mm Jelly</h3></td>
+            <td>Load</td>
+            <td>
+                <span onclick="decrementQuantity('quantityI', 7000)">-</span>
+                <input type="number" id="quantityI" name="quantityI" value="0" min="0" max="100" onchange="calculateTotal('quantityI', 'totalI', 7000)">
+                <span onclick="incrementQuantity('quantityI', 7000)">+</span>
+            </td>
+            <td>Rs.7000</td>
+            <td id="totalI">0</td> 
+            <input type="hidden" name="nameI" value="20mm Jelly">
+            <input type="hidden" name="priceI" value="7000">
+            <input type="hidden" id="hiddenTotalI" name="hiddenTotalI" value="0">  
+        </tr>
+        
+       
+    	<tr>
+   	<td>10</td>
+    	<td><img src="40mmjelly.webp" alt="40mm Jeely"></td>
+    	<td><h3>40mm Jelly</h3></td>
+    	<td>Load</td>
+    	<td>
+        <span onclick="decrementQuantity('quantityJ', 8500)">-</span>
+        <input type="number" id="quantityJ" name="quantityJ" value="0" min="0" max="100" onchange="calculateTotal('quantityJ', 'totalJ', 8500)">
+        <span onclick="incrementQuantity('quantityJ', 8500)">+</span>
+    	</td>
+        <td>Rs.8500</td>
+   	<td id="totalJ">0</td> 
+    	<input type="hidden" name="nameJ" value="40mm Jelly">
+    	<input type="hidden" name="priceJ" value="8500">
+    	<input type="hidden" id="hiddenTotalJ" name="hiddenTotalJ" value="0">  
+    	</tr>
+
+       <tr>
+       <td colspan="6" style="text-align: right; padding-right: 20px;" >NetTotal</td>
+       <td id="netTotalCell"></td>
+      </tr>
+      </table>
+      <input type="hidden" id="HiddennetTotal" name="netTotal">
+      <button class="subbtn" type="submit">Proceed to Checkout</button>
+</body>
+</html

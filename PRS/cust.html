@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>Customer Details</title>
+<style>
+ body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.form-container {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+}
+.form-group input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+.error-message {
+    color: red;
+}   
+</style>
+<script src="cust.js"></script>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Customer Details</h2>
+    <form action="store.php" method="POST" onsubmit="return validateForm()">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <span id="nameError" class="error-message"></span>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Contact Information</legend>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" minlength="10" maxlength="10">
+                <span id="phoneError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+                <span id="addressError" class="error-message"></span>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Delivery Details</legend>
+            <div class="form-group">
+                <label for="deliveryDate">Delivery Date:</label>
+                <input type="date" id="deliveryDate" name="deliveryDate" required>
+                <span id="deliveryDateError" class="error-message"></span>
+            </div>
+        </fieldset>
+        
+        <div class="form-group">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
